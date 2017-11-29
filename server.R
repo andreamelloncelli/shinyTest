@@ -8,9 +8,13 @@
 library(shiny)
 
 shinyServer(function(input, output) {
+	
+	message("START shinyServer")
+	
+	output$distPlot <- renderPlot({
 
-  output$distPlot <- renderPlot({
-
+		message("Rendering plot...")
+		
     # generate bins based on input$bins from ui.R
     x    <- faithful[, 2]
     bins <- seq(min(x), max(x), length.out = input$bins + 1)
@@ -20,4 +24,6 @@ shinyServer(function(input, output) {
 
   })
 
+	message("END shinyServer")
+	
 })
