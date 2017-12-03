@@ -15,8 +15,8 @@ shinyServer(function(input, output) {
 		
 		message("data collection...")
 		
-		from <- as_datetime(ymd("2017-08-30"))
-		to   <- as_datetime(ymd("2017-08-31"))
+		from <- as_datetime(input$start)
+		to   <- as_datetime(input$start + days(1))
 		historydata_int <- 
 			data_get(historydata, from, to)
 		historydata_int
@@ -25,8 +25,6 @@ shinyServer(function(input, output) {
 	
 	output$distPlot <- renderPlot({
 
-		data_collected <- function() historydata_int
-		
 		message("Rendering plot...")
 
 		ggplot(data_collected(), aes(x = time, y = value)) +

@@ -8,16 +8,16 @@
 shinyUI(fluidPage(
 
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  titlePanel("Date interval"),
 
   # Sidebar with a slider input for number of bins
   sidebarLayout(
     sidebarPanel(
-      sliderInput("bins",
-                  "Number of bins:",
-                  min = 1,
-                  max = 50,
-                  value = 30)
+      dateInput("start",
+      					"Day",
+      					min = ymd("2017-07-31"),
+      					max = ymd("2017-08-31"),
+      					value = ymd("2017-08-01"))
     ),
 
     # Show a plot of the generated distribution
