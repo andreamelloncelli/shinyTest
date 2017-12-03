@@ -2,7 +2,7 @@
 # packages ----------------------------------------------------------------
 
 library(shiny)
-library(DT)
+# library(DT)
 library(DBI)
 library(RMySQL)
 library(ggplot2)
