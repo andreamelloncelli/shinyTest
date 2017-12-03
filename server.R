@@ -5,8 +5,6 @@
 # http://shiny.rstudio.com
 #
 
-library(shiny)
-
 shinyServer(function(input, output) {
 	
 	message("START shinyServer")

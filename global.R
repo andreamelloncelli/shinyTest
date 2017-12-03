@@ -29,7 +29,7 @@ dplyr_conn <- list(
 )
 
 if (!exists("dev")) { 
-	# dplyr_conn$host = "ec2-54-236-27-47.compute-1.amazonaws.com" 
+	dplyr_conn$host = "ec2-54-236-27-47.compute-1.amazonaws.com" 
 }
 
 # functions ---------------------------------------------------------------
