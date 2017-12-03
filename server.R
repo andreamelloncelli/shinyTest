@@ -11,16 +11,27 @@ shinyServer(function(input, output) {
 	
 	message("START shinyServer")
 	
+	data_collected <- reactive({
+		
+		message("data collection...")
+		
+		from <- as_datetime(ymd("2017-08-30"))
+		to   <- as_datetime(ymd("2017-08-31"))
+		historydata_int <- 
+			data_get(historydata, from, to)
+		historydata_int
+		
+	})
+	
 	output$distPlot <- renderPlot({
 
-		message("Rendering plot...")
+		data_collected <- function() historydata_int
 		
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2]
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+		message("Rendering plot...")
 
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
+		ggplot(data_collected(), aes(x = time, y = value)) +
+			geom_line() 
+			# scale_y_log10()
 
   })
 
