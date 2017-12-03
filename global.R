@@ -29,8 +29,9 @@ dplyr_conn <- list(
 )
 
 if (!exists("dev")) { 
-	dplyr_conn$host = "172.30.3.13" 
-	}
+	# dplyr_conn$host = "ec2-54-236-27-47.compute-1.amazonaws.com" 
+}
+
 # functions ---------------------------------------------------------------
 
 load_data <- function(conn, tab_name = NULL ) {
