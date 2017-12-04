@@ -9,7 +9,6 @@ library(ggplot2)
 library(dplyr)
 library(dbplyr)
 library(lubridate)
-library(plotly)
 
 # params ------------------------------------------------------------------
 

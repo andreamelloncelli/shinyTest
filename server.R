@@ -33,11 +33,15 @@ shinyServer(function(input, output) {
 # 
 #   })
 # 	
-	output$distPlot <- renderPlotly({
-		# data_collected <- function() historydata_int
-		plot_ly(data_collected() %>% head, x = ~time, y = ~value, name = 'trace 0', type = 'scatter', mode = 'lines')
-	})
+	# output$distPlot <- renderPlotly({
+	# 	# data_collected <- function() historydata_int
+	# 	plot_ly(data_collected() %>% head, x = ~time, y = ~value, name = 'trace 0', type = 'scatter', mode = 'lines')
+	# })
 
+	output$data <- renderText({
+		jsonlite::toJSON(data_collected())
+	})
+	
 	message("END shinyServer")
 	
 })
