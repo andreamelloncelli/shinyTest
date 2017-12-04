@@ -34,6 +34,8 @@ if (!exists("dev")) {
 
 # functions ---------------------------------------------------------------
 
+local = F
+
 load_data <- function(conn, tab_name = NULL ) {
 	tab_name <- "channel"
 	db <- do.call(dbConnect, arg=conn)
@@ -68,7 +70,6 @@ time_range <- function(tbl) {
 }
 
 # initialization ----------------------------------------------------------
-local = F
 if (local) {
 	historydata <- readRDS( "data/historydata_day.Rds" )
 	channel     <- readRDS( "data/channel.Rds"  )
