@@ -68,7 +68,7 @@ time_range <- function(tbl) {
 }
 
 # initialization ----------------------------------------------------------
-local = T
+local = F
 if (local) {
 	historydata <- readRDS( "data/historydata_day.Rds" )
 	channel     <- readRDS( "data/channel.Rds"  )
