@@ -12,6 +12,8 @@ library(lubridate)
 
 # params ------------------------------------------------------------------
 
+local = T
+
 db_conn <- list(
 	drv      = RMySQL::MySQL(max.con = 16, fetch.default.rec = 500),
 	host     = "127.0.0.1",
@@ -68,7 +70,6 @@ time_range <- function(tbl) {
 }
 
 # initialization ----------------------------------------------------------
-local = F
 if (local) {
 	historydata <- readRDS( "data/historydata_day.Rds" )
 	channel     <- readRDS( "data/channel.Rds"  )
