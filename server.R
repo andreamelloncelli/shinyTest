@@ -39,7 +39,7 @@ shinyServer(function(input, output) {
 	# })
 
 	output$data <- renderText({
-		jsonlite::toJSON(data_collected())
+		jsonlite::toJSON(data_collected() )
 	})
 	
 	message("END shinyServer")

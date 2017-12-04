@@ -51,7 +51,8 @@ data_get <- function(tbl, from, to) {
 	from <- as_datetime(from) %>% as_epoch
 	to   <- as_datetime(to) %>% as_epoch
 	tbl %>%
-		filter( from < time, time < to ) %>% 
+		filter( from < time, time < to,
+						id_channel == 1 ) %>% 
 		collect %>% 
 		mutate( time = as_datetime(time) )
 }
