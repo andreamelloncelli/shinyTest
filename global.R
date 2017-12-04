@@ -13,7 +13,7 @@ library(lubridate)
 # params ------------------------------------------------------------------
 
 db_conn <- list(
-	drv      = RMySQL::MySQL(),
+	drv      = RMySQL::MySQL(max.con = 16, fetch.default.rec = 500),
 	host     = "127.0.0.1",
 	dbname   = "test_shiny",
 	user     = "root",
@@ -67,10 +67,15 @@ time_range <- function(tbl) {
 }
 
 # initialization ----------------------------------------------------------
-
-con     <- do.call(src_mysql, dplyr_conn)
-channel     <- tbl(con, "channel")
-customer    <- tbl(con, "customer")
-historydata <- tbl(con, "historydata")
-
+local = F
+if (local) {
+	historydata <- readRDS( "data/historydata_day.Rds" )
+	channel     <- readRDS( "data/channel.Rds"  )
+	customer    <- readRDS( "data/customer.Rds" )
+} else {
+	con     <- do.call(src_mysql, dplyr_conn)
+	channel     <- tbl(con, "channel")
+	customer    <- tbl(con, "customer")
+	historydata <- tbl(con, "historydata")
+}
 

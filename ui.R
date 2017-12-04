@@ -5,6 +5,8 @@
 # http://shiny.rstudio.com
 #
 
+inputDefaults <- list( start = ymd("2017-08-01") )
+
 shinyUI(fluidPage(
 
   # Application title
@@ -17,7 +19,7 @@ shinyUI(fluidPage(
       					"Day",
       					min = ymd("2017-07-31"),
       					max = ymd("2017-08-31"),
-      					value = ymd("2017-08-01"))
+      					value = inputDefaults$start)
     ),
 
     # Show a plot of the generated distribution
