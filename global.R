@@ -13,7 +13,7 @@ library(lubridate)
 # params ------------------------------------------------------------------
 
 db_conn <- list(
-	drv      = RMySQL::MySQL(max.con = 16, fetch.default.rec = 500),
+	drv      = RMySQL::MySQL(max.con = 200, fetch.default.rec = 500),
 	host     = "127.0.0.1",
 	dbname   = "test_shiny",
 	user     = "root",
