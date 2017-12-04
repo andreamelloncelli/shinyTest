@@ -21,15 +21,22 @@ shinyServer(function(input, output) {
 		
 	})
 	
-	output$distPlot <- renderPlot({
-
-		message("Rendering plot...")
-
-		ggplot(data_collected(), aes(x = time, y = value)) +
-			geom_line() 
-			# scale_y_log10()
-
-  })
+# 	output$distPlot <- renderPlot({
+# 
+# 		message("Rendering plot...")
+# 
+# 		ggplot(data_collected(), aes(x = time, y = value)) +
+# 			geom_line() 
+# 			# scale_y_log10()
+# 
+# 				fake_plot
+# 
+#   })
+# 	
+	output$distPlot <- renderPlotly({
+		# data_collected <- function() historydata_int
+		plot_ly(data_collected() , x = ~time, y = ~value, name = 'trace 0', type = 'scatter', mode = 'lines')
+	})
 
 	message("END shinyServer")
 	

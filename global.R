@@ -9,6 +9,7 @@ library(ggplot2)
 library(dplyr)
 library(dbplyr)
 library(lubridate)
+library(plotly)
 
 # params ------------------------------------------------------------------
 
@@ -79,3 +80,4 @@ if (local) {
 	historydata <- tbl(con, "historydata")
 }
 
+fake_plot <- ggplot(data.frame(0))
